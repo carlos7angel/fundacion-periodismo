@@ -1,0 +1,40 @@
+.landing-header {
+    height: 75px;
+}
+.landing-dark-bg {
+    background-color: #883f7e;
+    /*background-color: #6d6d6d;*/
+}
+.landing-footer-dark-bg {
+    background-color: rgb(80,80,80);
+}
+.scrolltop, .scrolltop:hover  {
+    background-color: #883f7e;
+}
+.menu-title-gray-600 .menu-item .menu-link {
+    color: #b1b5bf;
+}
+.btn.btn-primary {
+    border-color: #883f7e;
+    background-color: #883f7e;
+}
+.btn.btn-primary:hover:not(.btn-active),
+.btn.btn-primary:active:not(.btn-active),
+.btn.btn-primary:focus:not(.btn-active) {
+    border-color: #77376e;
+    background-color: #77376e !important;
+}
+.invalid-feedback {
+    font-weight: 600 !important;
+    color: #ff0000;
+}
+
+
+:root{
+    --bs-text-primary: #883f7e;
+    --bs-primary: #883f7e;
+}
+
+.text-primary {
+
+}

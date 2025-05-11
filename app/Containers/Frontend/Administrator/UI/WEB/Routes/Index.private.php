@@ -1,0 +1,16 @@
+<?php
+
+use App\Containers\Frontend\Administrator\UI\WEB\Controllers\IndexController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/inicio', [IndexController::class, 'showIndexPage'])
+    ->prefix(config('appSection-authentication.login.prefix'))
+    ->name('admin_show_index')
+    ->middleware(['auth:web'])
+    ->domain(parse_url(config('app.admin_url'))['host']);
+
+Route::get('/', [IndexController::class, 'showIndexPage'])
+    ->prefix(config('appSection-authentication.login.prefix'))
+    ->name('admin_show_index')
+    ->middleware(['auth:web'])
+    ->domain(parse_url(config('app.admin_url'))['host']);

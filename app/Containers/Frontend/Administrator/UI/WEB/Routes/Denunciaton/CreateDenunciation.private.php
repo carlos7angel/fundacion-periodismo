@@ -1,0 +1,10 @@
+<?php
+
+use App\Containers\Frontend\Administrator\UI\WEB\Controllers\DenunciationController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/monitoreo/denuncias/nuevo', [DenunciationController::class, 'create'])
+    ->prefix(config('appSection-authentication.login.prefix'))
+    ->name('admin_denunciation_create')
+    ->middleware(['auth:web'])
+    ->domain(parse_url(config('app.admin_url'))['host']);
