@@ -52,12 +52,12 @@
                 <div class="collapse" id="kt_advanced_search_form">
                     <div class="separator separator-dashed mt-5 mb-4"></div>
                     <div class="row g-8 mb-5">
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
                             <label class="fs-6 form-label fw-bold text-gray-900">Documento #</label>
                             <input type="text" class="form-control form-control-sm form-control-solid-x datatable-input" data-col-index="1" name="kt_search_code" />
                         </div>
-                        <div class="col-lg-4">
-                            <label class="fs-6 form-label fw-bold text-gray-900">Estado</label>
+                        <div class="col-lg-3">
+                            <label class="fs-6 form-label fw-bold text-gray-900">Situación</label>
                             <select class="form-select form-select-sm form-select-solid-x datatable-input" data-col-index="6" name="kt_search_status" data-control="select2" data-placeholder="Seleccionar" data-hide-search="true">
                                 <option value=""></option>
                                 <option value="NEW">Nuevo</option>
@@ -66,9 +66,18 @@
                                 <option value="ARCHIVED">Archivado</option>
                             </select>
                         </div>
-                        <div class="col-lg-4">
-                            <label class="fs-6 form-label fw-bold text-gray-900">Fecha de la agresión</label>
-                            <input type="text" class="form-control form-control-sm form-control-solid-x datatable-input" data-col-index="5" placeholder="DD/MM/YYYY" name="kt_search_date" />
+                        <div class="col-lg-6">
+                            <label class="fs-6 form-label fw-bold text-gray-900">Período</label>
+                            <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-2 row-cols-lg-2">
+                                <div class="col d-flex justify-content-between align-items-center">
+                                    <div>De: </div>
+                                    <input type="text" class="form-control form-control-sm form-control-solid-x datatable-input datepicker_flatpickr" data-col-index="5" placeholder="DD/MM/YYYY" name="kt_search_date" />
+                                </div>
+                                <div class="col d-flex justify-content-between align-items-center">
+                                    <div>Al: </div>
+                                    <input type="text" class="form-control form-control-sm form-control-solid-x datatable-input datepicker_flatpickr" data-col-index="7" placeholder="DD/MM/YYYY" name="kt_search_date2" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row g-8 mb-5">
@@ -115,7 +124,7 @@
 
         <div class="d-flex flex-wrap flex-stack pb-7">
             <div class="d-flex flex-wrap align-items-center my-1">
-                <h3 class="fw-bold me-5 my-1">Todos las Casos
+                <h3 class="fw-bold me-5 my-1">Todos los Casos
                     <span class="text-gray-500 fs-6 ms-2">Vulneración de derechos ↓ </span>
                 </h3>
             </div>
@@ -136,7 +145,7 @@
                         <th class="text-center min-w-150px">Agresor</th>
                         <th class="text-center min-w-150px">Víctima</th>
                         <th class="text-center min-w-70px">Fecha</th>
-                        <th class="text-center min-w-70px">Estado</th>
+                        <th class="text-center min-w-70px">Situación</th>
                         <th class="text-end min-w-70px">Opciones</th>
                     </tr>
                     </thead>

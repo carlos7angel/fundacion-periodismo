@@ -17,8 +17,8 @@ class AuthorizationDefaultUsersSeeder_4 extends ParentSeeder
     {
         $userData = [
             'email' => 'admin@admin.com',
-            'password' => config('appSection-authorization.admin_role'),
-            'name' => 'Super Administrator',
+            'password' => 'admin.123',
+            'name' => 'Administrator',
         ];
 
         $user_admin = $task->run($userData);

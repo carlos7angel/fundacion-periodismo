@@ -24,6 +24,7 @@ class GetDenunciationsJsonDataTableTask extends ParentTask
     public function run(Request $request): mixed
     {
         $requestData = $request->all();
+
         $draw = $requestData['draw'];
         $start = $requestData['start'];
         $length = $requestData['length'];
@@ -39,16 +40,19 @@ class GetDenunciationsJsonDataTableTask extends ParentTask
 
         $searchFieldCode = $requestData['columns'][1]['search']['value'];
         $searchFieldStatus = $requestData['columns'][6]['search']['value'];
-        $searchFieldDate = $requestData['columns'][5]['search']['value'];
         $searchFieldViolationType = $requestData['columns'][2]['search']['value'];
         $searchFieldAggressorType = $requestData['columns'][3]['search']['value'];
         $searchFieldVictimType = $requestData['columns'][4]['search']['value'];
+
+        $searchFieldStartDate = $requestData['columns'][5]['search']['value'];
+        $searchFieldEndDate = $requestData['columns'][7]['search']['value'];
 
         $result = $this->repository->scopeQuery(function ($query) use (
             $searchValue,
             $searchFieldCode,
             $searchFieldStatus,
-            $searchFieldDate,
+            $searchFieldStartDate,
+            $searchFieldEndDate,
             $searchFieldViolationType,
             $searchFieldAggressorType,
             $searchFieldVictimType,
@@ -61,9 +65,27 @@ class GetDenunciationsJsonDataTableTask extends ParentTask
                 $query = $query->where('status', '=', $searchFieldStatus);
             }
 
-            if (! empty($searchFieldDate)) {
-                $searchDate = Carbon::createFromFormat('d/m/Y', $searchFieldDate)->format('Y-m-d');
-                $query = $query->whereDate('date_event', '=', $searchDate);
+//            if (! empty($searchFieldDate)) {
+//                $searchDate = Carbon::createFromFormat('d/m/Y', $searchFieldDate)->format('Y-m-d');
+//                $query = $query->whereDate('date_event', '=', $searchDate);
+//            }
+
+            if (!empty($searchFieldStartDate) || !empty($searchFieldEndDate)) {
+                if (!empty($searchFieldStartDate)) {
+                    $dateStart = Carbon::createFromFormat('d/m/Y', $searchFieldStartDate)->startOfDay()->format('Y-m-d');
+                }
+
+                if (!empty($searchFieldEndDate)) {
+                    $dateEnd = Carbon::createFromFormat('d/m/Y', $searchFieldEndDate)->endOfDay()->format('Y-m-d');
+                }
+
+                if (!empty($dateStart) && !empty($dateEnd)) {
+                    $query = $query->whereBetween('date_event', [$dateStart, $dateEnd]);
+                } elseif (!empty($dateStart)) {
+                    $query = $query->whereDate('date_event', '>=', $dateStart);
+                } elseif (!empty($dateEnd)) {
+                    $query = $query->whereDate('date_event', '<=', $dateEnd);
+                }
             }
 
             if (! empty($searchFieldAggressorType)) {

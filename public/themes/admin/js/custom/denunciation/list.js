@@ -208,12 +208,22 @@ var KTDenunciationsList = function () {
         });
     }
 
+    var _initDatepicker = function () {
+
+        $('.datepicker_flatpickr').flatpickr({
+            dateFormat: "d/m/Y",
+        });
+
+    };
+
     return {
         init: function () {
             if (!table) {
                 return;
             }
             initTable();
+
+            _initDatepicker();
         }
     }
 }();

@@ -74,7 +74,7 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_aggressor_type_select" name="aggressor_type">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->aggressor_type == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -294,7 +294,7 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_victim_type_select" name="victim_type">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->victim_type == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -313,7 +313,7 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_victim_gender_select" name="victim_gender">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->victim_gender == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -332,7 +332,7 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_victim_age_group_select" name="victim_age_group">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->victim_age_group == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -433,7 +433,7 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_circumstance_event_select" name="circumstance_event">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->circumstance_event == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -452,7 +452,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row row-cols-1 row-cols-sm-3 rol-cols-md-1 row-cols-lg-3">
+                                <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
                                     <div class="col">
                                         <div class="fv-row mb-7">
                                             <label class="fs-6 fw-semibold form-label mt-3">
@@ -465,13 +465,37 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_report_status_select" name="report_status">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->report_status == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col">
+                                        <div id="kt_box_report_sub_status">
+                                            <div class="fv-row mb-7">
+                                                <label class="fs-6 fw-semibold form-label mt-3">
+                                                    <span class="required">Estado de la agresión denunciada:</span>
+                                                </label>
+                                                <div class="w-100">
+                                                    @php
+                                                        $catalog = app(\App\Containers\AppSection\Catalog\Tasks\Catalog\FindCatalogByCodeTask::class)->run('SST');
+                                                    @endphp
+                                                    <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
+                                                            id="kt_report_status_sub_select" name="report_sub_status">
+                                                        <option></option>
+                                                        @foreach($catalog?->items ?? [] as $index => $option)
+                                                            <option value="{{ $option->name }}" {{ $denunciation->report_sub_status == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
                                     <div class="col">
                                         <div class="fv-row mb-7">
                                             <label class="fs-6 fw-semibold form-label mt-3">
@@ -484,7 +508,7 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_action_response_state_select" name="action_response_state">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->action_response_state == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -503,7 +527,7 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_action_unprotect_state_select" name="action_unprotect_state">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->action_unprotect_state == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -525,7 +549,7 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_action_journalistic_unions_select" name="action_journalistic_unions">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->action_journalistic_unions == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -544,7 +568,7 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_action_organization_society_select" name="action_organization_society">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->action_organization_society == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -566,7 +590,7 @@
                                                 <select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Seleccione una opción"
                                                         id="kt_source_information_select" name="source_information">
                                                     <option></option>
-                                                    @foreach($catalog->items as $index => $option)
+                                                    @foreach($catalog?->items ?? [] as $index => $option)
                                                         <option value="{{ $option->name }}" {{ $denunciation->source_information == $option->name ? 'selected="selected"' : '' }}>{{ $option->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -584,6 +608,38 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="fv-row mb-7">
+                                    <label class="fs-6 fw-semibold form-label mt-3">
+                                        <span>Enlaces de verificación (opcional):</span>
+                                    </label>
+                                    <div class="" data-kt-catalog-add-items="auto-options">
+                                        <div id="kt_links_options">
+                                            @php
+                                                $urls = $denunciation->links ? json_decode($denunciation->links) : null;
+                                            @endphp
+                                            @if($denunciation->links)
+                                                <input type="hidden" name="links" value="{{ json_encode($urls) }}">
+                                            @endif
+                                            <div class="form-group">
+                                                <div data-repeater-list="kt_links_options" class="d-flex flex-column gap-3">
+                                                    <div data-repeater-item="" class="form-group d-flex flex-wrap align-items-center gap-5">
+                                                        <input type="text" class="form-control mw-100 w-350px" name="links_value" placeholder="https://www.google.com" />
+                                                        <button type="button" data-repeater-delete="" class="btn btn-sm btn-icon btn-light-danger">
+                                                            <i class="ki-outline ki-cross fs-1"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mt-5">
+                                                <button type="button" data-repeater-create="" class="btn btn-sm btn-light-primary">
+                                                    <i class="ki-outline ki-plus fs-2"></i>Adicionar enlace
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 

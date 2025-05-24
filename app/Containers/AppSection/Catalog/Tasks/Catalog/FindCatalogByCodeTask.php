@@ -17,7 +17,7 @@ class FindCatalogByCodeTask extends ParentTask
     /**
      * @throws NotFoundException
      */
-    public function run($code): Catalog
+    public function run($code): Catalog | null
     {
         try {
             $result = $this->repository->findWhere([

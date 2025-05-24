@@ -36,3 +36,15 @@ if (!function_exists('toShortName')) {
         return $_name;
     }
 }
+
+if (!function_exists('convertBytes')) {
+    function convertBytes($bytes) {
+        if ($bytes < 1024) {
+            return $bytes . ' bytes';
+        } elseif ($bytes < 1048576) {
+            return round($bytes / 1024, 2) . ' KB';
+        } else {
+            return round($bytes / 1048576, 2) . ' MB';
+        }
+    }
+}

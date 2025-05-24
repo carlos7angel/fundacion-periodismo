@@ -22,17 +22,20 @@ class CatalogItemsSeeder_2 extends ParentSeeder
         $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE02', 'name' => 'Autoridad de entidad desconcentrada nacional']);
         $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE03', 'name' => 'Asambleísta nacional']);
         $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE04', 'name' => 'Autoridad del poder judicial']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE05', 'name' => 'Defensoría del pueblo']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE06', 'name' => 'Fiscal']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE07', 'name' => 'Policía nacional']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE08', 'name' => 'Militar']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE09', 'name' => 'Asambleísta departamental']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE10', 'name' => 'Autoridad del poder ejecutivo municipal']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE11', 'name' => 'Concejal municipal']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE12', 'name' => 'Servidor público ejecutivo nacional']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE13', 'name' => 'Servidor público departamental']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE14', 'name' => 'Servidor público municipal']);
-        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE15', 'name' => 'Servidor público de entidad desconcentrada']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE05', 'name' => 'Autoridad del poder electoral']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE06', 'name' => 'Defensoría del pueblo']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE07', 'name' => 'Fiscal']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE08', 'name' => 'Juez/a']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE09', 'name' => 'Policía nacional']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE10', 'name' => 'Militar']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE11', 'name' => 'Asambleísta departamental']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE12', 'name' => 'Autoridad del poder ejecutivo municipal']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE13', 'name' => 'Concejal municipal']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE14', 'name' => 'Servidor público del poder ejecutivo, legislativo, judicial o electoral a nivel nacional']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE15', 'name' => 'Servidor público ejecutivo nacional']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE16', 'name' => 'Servidor público departamental']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE17', 'name' => 'Servidor público municipal']);
+        $task->run(['catalog_code' => 'AGR', 'parent_code' => 'AGR01', 'code' => 'AE18', 'name' => 'Servidor público de entidad desconcentrada']);
 
         $task->run(['catalog_code' => 'VIC', 'code' => 'VIC01', 'name' => 'Periodista']);
         $task->run(['catalog_code' => 'VIC', 'code' => 'VIC02', 'name' => 'Trabajador/a en medios', 'description' => 'camarógrafo/a, fotógrafo/a, fotoperiodista, sonidista, etc.']);
@@ -62,8 +65,12 @@ class CatalogItemsSeeder_2 extends ParentSeeder
         $task->run(['catalog_code' => 'CTX', 'code' => 'CTX12', 'name' => 'Cobertura/investigación de narcotráfico']);
         $task->run(['catalog_code' => 'CTX', 'code' => 'CTX13', 'name' => 'Otro']);
 
-        $task->run(['catalog_code' => 'STA', 'code' => 'STA01', 'name' => 'Agresión denunciada o no denunciada formalmente']);
-        $task->run(['catalog_code' => 'STA', 'code' => 'STA02', 'name' => 'Agresión con sentencia del agresor']);
+        $task->run(['catalog_code' => 'STA', 'code' => 'STA01', 'name' => 'Agresión denunciada formalmente']);
+        $task->run(['catalog_code' => 'STA', 'code' => 'STA02', 'name' => 'Agresión no denunciada formalmente']);
+
+        $task->run(['catalog_code' => 'SST', 'code' => 'SST01', 'name' => 'Denuncia en proceso']);
+        $task->run(['catalog_code' => 'SST', 'code' => 'SST02', 'name' => 'Denuncia con sentencia']);
+        $task->run(['catalog_code' => 'SST', 'code' => 'SST03', 'name' => 'Denuncia cerrada']);
 
         $task->run(['catalog_code' => 'ARE', 'code' => 'ARE01', 'name' => 'Acción Judicial']);
         $task->run(['catalog_code' => 'ARE', 'code' => 'ARE02', 'name' => 'Acción administrativa']);
@@ -77,7 +84,7 @@ class CatalogItemsSeeder_2 extends ParentSeeder
         $task->run(['catalog_code' => 'ARE', 'code' => 'ARE10', 'name' => 'Sin dato/información']);
 
         $task->run(['catalog_code' => 'APE', 'code' => 'APE01', 'name' => 'Minimización del hecho']);
-        $task->run(['catalog_code' => 'APE', 'code' => 'APE02', 'name' => 'Soslayamiento ']);
+        $task->run(['catalog_code' => 'APE', 'code' => 'APE02', 'name' => 'Soslayamiento']);
         $task->run(['catalog_code' => 'APE', 'code' => 'APE03', 'name' => 'Retardación de justicia']);
         $task->run(['catalog_code' => 'APE', 'code' => 'APE04', 'name' => 'Olvido judicial']);
         $task->run(['catalog_code' => 'APE', 'code' => 'APE05', 'name' => 'Archivo judicial']);

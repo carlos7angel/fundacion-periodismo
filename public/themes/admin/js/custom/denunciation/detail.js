@@ -61,7 +61,7 @@ var KTDenunciationDetail = function () {
                             success: function (response) {
                                 if (response.success) {
                                     Swal.fire({
-                                        text: "Estado actualizado satisfactoriamente",
+                                        text: "Registro actualizado satisfactoriamente",
                                         icon: "success",
                                         buttonsStyling: false,
                                         confirmButtonText: "Aceptar",

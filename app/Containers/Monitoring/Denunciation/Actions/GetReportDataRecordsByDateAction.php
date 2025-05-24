@@ -41,7 +41,8 @@ class GetReportDataRecordsByDateAction extends ParentAction
             $dater = $day->format('Y-m-d');
             $regs = app(GetDenunciationsByCreatedDateTask::class)->run($dater);
             $data[] = (object)[
-                "date" => $day->translatedFormat('M d'),
+                //"date" => $day->translatedFormat('M d'),
+                "date" => $day->format('M d'),
                 "value" => $regs->count()
             ];
         }

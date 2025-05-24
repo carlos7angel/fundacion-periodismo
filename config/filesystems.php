@@ -56,6 +56,17 @@ return [
             'throw' => false,
         ],
 
+        // =============
+
+        'local-uploads' => [
+            'driver'    => 'local',
+            //'root'      => public_path() . '/storage',
+            'root'      => storage_path('app/public'),
+            'url'       => parse_url(env('APP_URL'))['host'] .'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
     ],
 
     /*

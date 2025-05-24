@@ -4,7 +4,7 @@ namespace App\Containers\AppSection\FileManager\Actions;
 
 use Apiato\Core\Exceptions\IncorrectIdException;
 use App\Containers\AppSection\FileManager\Models\File;
-use App\Containers\AppSection\FileManager\Tasks\CreateFileManagerTask;
+use App\Containers\AppSection\FileManager\Tasks\CreateFileTask;
 use App\Containers\AppSection\FileManager\UI\WEB\Requests\CreateFileManagerRequest;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Actions\Action as ParentAction;

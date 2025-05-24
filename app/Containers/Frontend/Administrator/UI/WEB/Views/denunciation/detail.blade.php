@@ -67,7 +67,7 @@
                             <div class="fw-bold text-gray-800 fs-6">{{ $denunciation->code }}</div>
                         </div>
                         <div class="mb-6">
-                            <div class="fw-semibold text-gray-600 fs-7">Estado:</div>
+                            <div class="fw-semibold text-gray-600 fs-7">Situación:</div>
                             <div class="fw-bold text-gray-800 fs-6">
                                 @switch($denunciation->status)
                                     @case('NEW')
@@ -79,7 +79,7 @@
                                     @break
 
                                     @case('CLOSED')
-                                    <span class="badge badge-light-secondary">Cerrado</span>
+                                    <span class="badge badge-light-secondary">Cerrado</span>e
                                     @break
 
                                     @case('ARCHIVED')
@@ -493,12 +493,12 @@
                     <form id="kt_form_update_status_denunciation" class="form" method="post" autocomplete="off"
                           action="{{ route('admin_denunciation_update_status', ['id' => $denunciation->id]) }}">
                         <div class="mb-10 text-center">
-                            <h1 class="mb-3">Denuncia</h1>
-                            <div class="text-muted fw-semibold fs-5">Actualizar el estado</div>
+                            <h1 class="mb-3">Registro</h1>
+                            <div class="text-muted fw-semibold fs-5">Actualizar</div>
                         </div>
                         <div class="d-flex flex-column mb-5 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                                <span>Cambiar estado a:</span>
+                                <span>Cambiar a:</span>
                             </label>
                             <input type="text" class="form-control form-check-solid" name="readonly_denunciation_status" value="" readonly disabled />
                             <input type="hidden" name="denunciation_status" value="">

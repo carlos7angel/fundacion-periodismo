@@ -70,6 +70,10 @@ class CreateDenunciationAction extends ParentAction
         }
 
         $data['report_status'] = $request->get('report_status') ?? null;
+        if($request->get('report_status') === 'Agresión denunciada formalmente') {
+            $data['report_sub_status'] = $request->get('report_sub_status') ?? null;
+        }
+
         $data['action_response_state'] = $request->get('action_response_state') ?? null;
         $data['action_unprotect_state'] = $request->get('action_unprotect_state') ?? null;
         $data['action_journalistic_unions'] = $request->get('action_journalistic_unions') ?? null;
@@ -83,6 +87,22 @@ class CreateDenunciationAction extends ParentAction
         ) {
             $data['source_information_detail'] = $request->get('source_information_detail') ?? null;
         }
+
+        if ($request->has('kt_links_options')) {
+            $data['links'] = null;
+            $links = [];
+            $links_array =  $request->get('kt_links_options');
+            foreach ($links_array as $key => $link_item) {
+                if (! empty($link_item['links_value'])) {
+                    $links[] = $link_item['links_value'];
+                }
+            }
+            if (count($links) > 0) {
+                $data['links'] = json_encode($links);
+            }
+        }
+
+        //dd($data);
 
         $user = app(GetAuthenticatedUserTask::class)->run();
         $data['created_by'] = $user->id;

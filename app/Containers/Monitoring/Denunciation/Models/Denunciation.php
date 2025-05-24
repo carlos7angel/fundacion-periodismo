@@ -37,6 +37,7 @@ class Denunciation extends ParentModel
         'details_event_images',
         'details_event_files',
         'report_status',
+        'report_sub_status',
         'action_response_state',
         'action_unprotect_state',
         'action_journalistic_unions',
@@ -44,6 +45,7 @@ class Denunciation extends ParentModel
         'source_information_detail',
         'source_information',
         'status',
+        'links',
         'created_by',
     ];
 

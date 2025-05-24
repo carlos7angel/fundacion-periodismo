@@ -138,7 +138,7 @@
                                     <th class="min-w-150px">Tipo de Agresión</th>
                                     <th class="min-w-100px">Fecha</th>
                                     <th class="min-w-100px">Departamento</th>
-                                    <th class="min-w-80px">Estado</th>
+                                    <th class="min-w-80px">Proceso</th>
                                 </tr>
                                 </thead>
                                 <tbody>

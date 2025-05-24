@@ -7,6 +7,7 @@ var KTFormsDenunciation = function () {
     var validator;
     var form;
     var typificationRepeater;
+    var linksRepeater;
 
     var _initDatepicker = function () {
 
@@ -64,7 +65,7 @@ var KTFormsDenunciation = function () {
                             callback: {
                                 message: 'Ingrese al menos un tipo, todos los campos son obligatorios',
                                 callback: function () {
-                                    const rows = $('[data-repeater-item]');
+                                    const rows = $('#kt_violation_typification_options').find('[data-repeater-item]');
                                     if (rows.length === 0) return false;
 
                                     let allValid = true;
@@ -154,6 +155,13 @@ var KTFormsDenunciation = function () {
                         }
                     },
                     report_status: {
+                        validators: {
+                            notEmpty: {
+                                message: 'El campo es obligatorio'
+                            }
+                        }
+                    },
+                    report_sub_status: {
                         validators: {
                             notEmpty: {
                                 message: 'El campo es obligatorio'
@@ -347,12 +355,23 @@ var KTFormsDenunciation = function () {
         }
     }
 
+    const validateReportStatus = function (val) {
+        if (val === 'Agresión denunciada formalmente') {
+            $('#kt_box_report_sub_status').removeClass('d-none').addClass('d-block');
+            validator.enableValidator('report_sub_status');
+        } else {
+            $('#kt_box_report_sub_status').addClass('d-none').removeClass('d-block');
+            validator.disableValidator('report_sub_status');
+        }
+    }
+
     const _handleSettings = function () {
         $(document).on('change', 'select[name="aggressor_type"]', function (e) { validateAggressorType($(this).val()); });
         $(document).on('change', 'input[name="aggressor_identified"]', function (e) { validateAggressorIdentified($(this).is(':checked')); });
         $(document).on('change', 'input[name="victim_identified"]', function (e) { validateVictimIdentified($(this).is(':checked')); });
         $(document).on('change', 'select[name="circumstance_event"]', function (e) { validateCircumstanceEvent($(this).val()); });
         $(document).on('change', 'select[name="source_information"]', function (e) { validateSourceInformation($(this).val()); });
+        $(document).on('change', 'select[name="report_status"]', function (e) { validateReportStatus($(this).val()); });
     };
 
     const _initHandleSettings = function () {
@@ -363,6 +382,7 @@ var KTFormsDenunciation = function () {
         validateAggressorIdentified((aggressor_identified_val === '0' || aggressor_identified_val === ''));
         const victim_identified_val = $('input[name="victim_identified"]').val();
         validateVictimIdentified(victim_identified_val === '1');
+        validateReportStatus($('select[name="report_status"]').val());
     }
 
     const _handleTypificationDropdown = function () {
@@ -472,6 +492,31 @@ var KTFormsDenunciation = function () {
 
     }
 
+    const _initLinksFormRepeater = () => {
+        linksRepeater = $('#kt_links_options').repeater({
+            initEmpty: false,
+            defaultValues: {},
+            show: function () {$(this).slideDown();},
+            hide: function (deleteElement) {$(this).slideUp(deleteElement);}
+        });
+    }
+
+    const _initLinks = () => {
+        var defaultUrls = document.querySelector('input[name="links"]');
+        if (defaultUrls) {
+            var links =JSON.parse(defaultUrls.value);
+            var links_list = [];
+            if(Array.isArray(links)) {
+                links.forEach(elem => {
+                    links_list.push({
+                        'links_value': elem,
+                    });
+                });
+                linksRepeater.setList(links_list);
+            }
+        }
+    }
+
     // const initConditionsSelect2 = () => {
     //     // Tnit new repeating condition types
     //     const allConditionTypes = document.querySelectorAll('[data-kt-violation_type_category-add="violation_type_category_option"]');
@@ -498,6 +543,8 @@ var KTFormsDenunciation = function () {
             _initHandleSettings();
             _initTypificationDropdowns();
             _handleTypificationDropdown();
+            _initLinksFormRepeater();
+            _initLinks();
         }
     }
 }();

@@ -42,6 +42,7 @@ return new class() extends Migration {
             $table->string('details_event_files', 200)->nullable();
 
             $table->string('report_status', 200)->nullable(); // CATALOG
+            $table->string('report_sub_status', 200)->nullable(); // CATALOG
 
             $table->string('action_response_state', 200)->nullable(); // CATALOG
             $table->string('action_unprotect_state', 200)->nullable(); // CATALOG
@@ -50,6 +51,8 @@ return new class() extends Migration {
 
             $table->text('source_information')->nullable(); // CATALOG
             $table->string('source_information_detail', 200)->nullable();
+
+            $table->text('links')->nullable();
 
             $table->enum('status', ['NEW', 'IN_PROGRESS', 'ARCHIVED', 'CLOSED'])->default('NEW');
 

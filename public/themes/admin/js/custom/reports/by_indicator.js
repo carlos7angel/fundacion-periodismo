@@ -92,11 +92,12 @@ var KTReportsByIndicator = function () {
 
             xAxis.get("renderer").labels.template.setAll({
                 paddingTop: 20,
-                fontWeight: "400",
-                fontSize: 10,
-                rotation: -25,
+                fontWeight: "600",
+                fontSize: 15,
+                rotation: -45,
                 fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500')),
-
+                centerX: am5.p100,
+                centerY: am5.p50,
             });
 
             xAxis.get("renderer").grid.template.setAll({
@@ -120,7 +121,7 @@ var KTReportsByIndicator = function () {
 
             yAxis.get("renderer").labels.template.setAll({
                 fontWeight: "400",
-                fontSize: 10,
+                fontSize: 12,
                 fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
             });
 
@@ -138,8 +139,8 @@ var KTReportsByIndicator = function () {
                     centerX: am5.p50,
                     centerY: am5.p100,
                     dy: -10,
-                    fontSize: 12,
-                    fontWeight: "500",
+                    fontSize: 14,
+                    fontWeight: "700",
                     fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-800'))
                 });
 

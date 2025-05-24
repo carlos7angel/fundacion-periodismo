@@ -50,11 +50,14 @@ class ViolationTypesSeeder extends ParentSeeder
         $task->run(['fid_violation_type_category' => 4, 'name' => 'Ataque /cerco a instalaciones e infraestructura de medios de comunicación (Chapultepec; protocolo Bolivia)']);
         $task->run(['fid_violation_type_category' => 4, 'name' => 'Robo-hurto de equipos, materiales y pertenencias de periodistas']);
         $task->run(['fid_violation_type_category' => 4, 'name' => 'Secuestro de equipos y materiales periodísticos']);
+        $task->run(['fid_violation_type_category' => 4, 'name' => 'Requerimiento para revelar el secreto de fuente']);
         $task->run(['fid_violation_type_category' => 4, 'name' => 'Destrozo/destrucción de equipos y/o infraestructura']);
         $task->run(['fid_violation_type_category' => 4, 'name' => 'Borrado de material periodístico']);
         $task->run(['fid_violation_type_category' => 4, 'name' => 'Ataque informático/digital a medios y periodistas']);
         $task->run(['fid_violation_type_category' => 4, 'name' => 'Impedir/Entorpecer el trabajo periodístico']);
         $task->run(['fid_violation_type_category' => 4, 'name' => 'Impedir/entorpecer el acceso a fuentes de información']);
+        $task->run(['fid_violation_type_category' => 4, 'name' => 'Criminalización']);
+        $task->run(['fid_violation_type_category' => 4, 'name' => 'Requerimiento para ser testigo en juicios a terceros']);
 
         $task->run(['fid_violation_type_category' => 5, 'name' => 'Uso del nombre del periodista para difundir mensajes desinformadores']);
         $task->run(['fid_violation_type_category' => 5, 'name' => 'Uso del nombre del medio de comunicación para difundir mensajes desinformadores']);
