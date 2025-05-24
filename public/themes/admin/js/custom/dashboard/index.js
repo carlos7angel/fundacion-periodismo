@@ -88,8 +88,6 @@ var KTDashboard = function () {
 
     var renderCards = function(totals) {
         document.getElementById('kt_card_total_denunciations_all').innerText = totals.all;
-        document.getElementById('kt_card_total_denunciations_in_progress').innerText = totals.in_progress;
-        document.getElementById('kt_card_total_denunciations_closed').innerText = totals.closed;
     }
 
     var loadReport = function() {
@@ -99,8 +97,6 @@ var KTDashboard = function () {
 
         am5.net.load(url).then(function(result) {
             var data = am5.JSONParser.parse(result.response);
-
-            console.log(data);
 
             // RENDER CHART
             xAxis.data.setAll(data.data.report);

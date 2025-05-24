@@ -37,24 +37,6 @@
 
             <div class="d-flex flex-column justify-content-center justify-content-xl-start flex-row-auto w-100 w-xl-300px w-xxl-350px">
 
-                <div class="mb-5">
-                    @switch($denunciation->status)
-                        @case('NEW')
-                        <button type="button" data-new-status="IN_PROGRESS" data-new-status-label="EN PROGRESO" class="kt_change_denunciation_status btn btn-primary btn-sm me-1 fs-8"><i class="ki-outline ki-notepad-edit fs-3 me-1"></i>Atender</button>
-                        <button type="button" data-new-status="ARCHIVED" data-new-status-label="ARCHIVADO" class="kt_change_denunciation_status btn btn-primary btn-sm me-1 fs-8"><i class="ki-outline ki-archive fs-3 me-1"></i>Archivar</button>
-                        @break
-                        @case('IN_PROGRESS')
-                        <button type="button" data-new-status="CLOSED" data-new-status-label="CERRADO" class="kt_change_denunciation_status btn btn-primary btn-sm me-1 fs-8"><i class="ki-outline ki-check fs-3 me-1"></i>Cerrar</button>
-                        <button type="button" data-new-status="ARCHIVED" data-new-status-label="ARCHIVADO" class="kt_change_denunciation_status btn btn-primary btn-sm me-1 fs-8"><i class="ki-outline ki-archive fs-3 me-1"></i>Archivar</button>
-                        @break
-                        @case('CLOSED')
-                        <button type="button" data-new-status="IN_PROGRESS" data-new-status-label="EN PROGRESO" class="kt_change_denunciation_status btn btn-primary btn-sm me-1 fs-8"><i class="ki-outline ki-check fs-3 me-1"></i>Reabrir</button>
-                        @break
-                        @case('ARCHIVED')
-                        @break
-                    @endswitch
-                </div>
-
                 <div class="card border border-dashed border-gray-300 mb-7">
                     <div class="card-body">
                         <h6 class="mb-8 fw-bolder text-gray-600 text-hover-primary">DATOS DEL DOCUMENTO</h6>
@@ -66,29 +48,6 @@
                             <div class="fw-semibold text-gray-600 fs-7">Nro Documento:</div>
                             <div class="fw-bold text-gray-800 fs-6">{{ $denunciation->code }}</div>
                         </div>
-                        <div class="mb-6">
-                            <div class="fw-semibold text-gray-600 fs-7">Situación:</div>
-                            <div class="fw-bold text-gray-800 fs-6">
-                                @switch($denunciation->status)
-                                    @case('NEW')
-                                    <span class="badge badge-light-info">Nuevo</span>
-                                    @break
-
-                                    @case('IN_PROGRESS')
-                                    <span class="badge badge-light-success">En progreso</span>
-                                    @break
-
-                                    @case('CLOSED')
-                                    <span class="badge badge-light-secondary">Cerrado</span>e
-                                    @break
-
-                                    @case('ARCHIVED')
-                                    <span class="badge badge-light-danger">Archivado</span>
-                                    @break
-                                @endswitch
-                            </div>
-                        </div>
-
                         <div class="mb-0">
                             <div class="fw-semibold text-gray-600 fs-7">Fecha de creacion:</div>
                             <div class="fw-bold text-gray-800 fs-6">{{ $denunciation->created_at }}</div>
@@ -394,6 +353,19 @@
 
                                 <div class="separator separator-dashed border-muted"></div>
 
+                                @if($denunciation->report_status === 'Agresión denunciada formalmente')
+                                <div class="row">
+                                    <div class="col-md-4 d-flex align-items-center justify-content-end text-end">
+                                        <label class="fw-semibold fs-7 text-gray-600">Estado de la agresión denunciada:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p class="form-control form-control-plaintext">{{ $denunciation->report_sub_status }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="separator separator-dashed border-muted"></div>
+                                @endif
+
                                 <div class="row">
                                     <div class="col-md-4 d-flex align-items-center justify-content-end text-end">
                                         <label class="fw-semibold fs-7 text-gray-600">Acción/respuesta del estado:</label>
@@ -461,6 +433,28 @@
                                         </div>
                                     </div>
                                 @endif
+
+                                <div class="separator separator-dashed border-muted"></div>
+
+                                <div class="row">
+                                    <div class="col-md-4 d-flex align-items-center justify-content-end text-end">
+                                        <label class="fw-semibold fs-7 text-gray-600">Enlaces de verificación:</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        @php
+                                            $urls = $denunciation->links ? json_decode($denunciation->links) : null;
+                                        @endphp
+                                        @if(count($urls) > 0)
+                                            <p class="form-control form-control-plaintext">
+                                            @foreach($urls as $url)
+                                                <a href="{{ $url }}" target="_blank" class="">{{ $url }}</a><br>
+                                            @endforeach
+                                            </p>
+                                        @else
+                                            <p class="form-control form-control-plaintext py-0 pb-1">-</p>
+                                        @endif
+                                    </div>
+                                </div>
 
                                 <div class="separator separator-dashed border-muted"></div>
 

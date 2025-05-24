@@ -39,18 +39,16 @@ class GetDenunciationsJsonDataTableTask extends ParentTask
         $skip = $start != null ? intval($start) : 0;
 
         $searchFieldCode = $requestData['columns'][1]['search']['value'];
-        $searchFieldStatus = $requestData['columns'][6]['search']['value'];
         $searchFieldViolationType = $requestData['columns'][2]['search']['value'];
         $searchFieldAggressorType = $requestData['columns'][3]['search']['value'];
         $searchFieldVictimType = $requestData['columns'][4]['search']['value'];
 
         $searchFieldStartDate = $requestData['columns'][5]['search']['value'];
-        $searchFieldEndDate = $requestData['columns'][7]['search']['value'];
+        $searchFieldEndDate = $requestData['columns'][6]['search']['value'];
 
         $result = $this->repository->scopeQuery(function ($query) use (
             $searchValue,
             $searchFieldCode,
-            $searchFieldStatus,
             $searchFieldStartDate,
             $searchFieldEndDate,
             $searchFieldViolationType,
@@ -64,11 +62,6 @@ class GetDenunciationsJsonDataTableTask extends ParentTask
             if (! empty($searchFieldStatus)) {
                 $query = $query->where('status', '=', $searchFieldStatus);
             }
-
-//            if (! empty($searchFieldDate)) {
-//                $searchDate = Carbon::createFromFormat('d/m/Y', $searchFieldDate)->format('Y-m-d');
-//                $query = $query->whereDate('date_event', '=', $searchDate);
-//            }
 
             if (!empty($searchFieldStartDate) || !empty($searchFieldEndDate)) {
                 if (!empty($searchFieldStartDate)) {

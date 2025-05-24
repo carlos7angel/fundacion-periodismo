@@ -102,8 +102,6 @@ class CreateDenunciationAction extends ParentAction
             }
         }
 
-        //dd($data);
-
         $user = app(GetAuthenticatedUserTask::class)->run();
         $data['created_by'] = $user->id;
 

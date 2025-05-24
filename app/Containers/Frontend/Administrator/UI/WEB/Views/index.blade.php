@@ -44,12 +44,32 @@
                         </i>
                         <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
                             <div class="mb-3 mb-md-0 fw-semibold">
-                                <h4 class="text-gray-900 fw-bold">¡Bienvenido al Sistema de Monitoreo sobre Protección de Periodistas!</h4>
-                                <h5 class="text-muted fw-bold">Tu plataforma centralizada para la gestión de registros de casos de agresión y/o vulneración.</h5>
-                                <div class="fs-6 text-gray-600 pe-7">
-                                    Nos complace darte la bienvenida a este sistema, diseñado específicamente para facilitar la administración, organización y seguimiento
-                                    de los registros de incidentes. <br>
-                                </div>
+                                <h4 class="text-gray-900 fw-bold">¡Bienvenido al Sistema de Monitoreo sobre Protección de Periodistas - SISMOPP!</h4>
+                                <h5 class="text-muted fw-bold">Plataforma centralizada para la gestión de registros de casos de agresión y/o vulneración.</h5>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gy-5 gx-xl-10">
+                <div class="col-12 mb-7">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column ">
+                            <div class="fs-6 text-gray-600 pe-7">
+                                <p>
+                                    El Sistema de Monitoreo sobre Protección de Periodistas de Bolivia (SISMOPP) es una iniciativa impulsada por la Asociación Nacional de Periodistas de Bolivia (ANPB) y la Asociación de Periodistas de La Paz (APLP), en colaboración con la Fundación para el Periodismo (FPP).
+                                </p>
+                                <p>
+                                    Cuenta con el apoyo de la Organización de la Naciones Unidas para la Educación, la Ciencia y la Cultura (UNESCO), a través del Programa Internacional para el Desarrollo de la Comunicación (PIDC), cuya finalidad es promover el desarrollo de los medios de comunicación en entornos plurales y democráticos.
+                                </p>
+                                <p>
+                                    El SISMOPP tiene el objetivo central de registrar datos y procesar información cualificada, con estándares establecidos por UNESCO, sobre incidentes relativos a vulneraciones (o eventuales garantías) sobre libertad de expresión, libertad de prensa y protección de periodistas en el país.
+                                </p>
+                                <p>
+                                    A partir de este registro y procesamiento, se persigue generar: a) reportes periódicos e informes analíticos y propositivos; b) procesos y materiales de capacitación; c) foros de deliberación pública, encaminados al fortalecimiento de las capacidades de periodistas, sus asociaciones y gremios, además de la visibilización sobre el tema que, a futuro, pueda impulsar una normativa específica en el país.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -79,46 +99,10 @@
                     </div>
                 </div>
                 <div class="col-sm-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-header flex-nowrap border-0 pt-5">
-                            <div class="card-title m-0">
-                                <i class="ki-duotone ki-chart-line fs-3hx text-gray-400">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </div>
-                            <div class="card-toolbar m-0">
-                            </div>
-                        </div>
-                        <div class="card-body d-flex flex-column px-9 pt-3 pb-5">
-                            <div class="fs-2tx fw-bold mb-3" id="kt_card_total_denunciations_in_progress">0</div>
-                            <div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-                                <i class="ki-duotone ki-Up-right fs-3 me-1 text-danger"></i>
-                                <div class="fw-semibold text-gray-500">Casos En Progreso</div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="col-sm-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-header flex-nowrap border-0 pt-5">
-                            <div class="card-title m-0">
-                                <i class="ki-duotone ki-chart-line fs-3hx text-gray-400">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </div>
-                            <div class="card-toolbar m-0">
-                            </div>
-                        </div>
-                        <div class="card-body d-flex flex-column px-9 pt-3 pb-5">
-                            <div class="fs-2tx fw-bold mb-3" id="kt_card_total_denunciations_closed">0</div>
-                            <div class="d-flex align-items-center flex-wrap mb-5 mt-auto fs-6">
-                                <i class="ki-duotone ki-Up-right fs-3 me-1 text-danger"></i>
-                                <div class="fw-semibold text-gray-500">Casos Cerrados</div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 

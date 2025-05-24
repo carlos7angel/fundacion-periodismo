@@ -49,7 +49,6 @@ class DenunciationController extends WebController
 
     public function store(StoreDenunciationRequest $request)
     {
-        // dd($request->all());
         try {
             if ($request->get('denunciation_id')) {
                 $denunciation = app(UpdateDenunciationAction::class)->run($request);

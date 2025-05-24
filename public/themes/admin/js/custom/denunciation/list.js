@@ -55,7 +55,6 @@ var KTDenunciationsList = function () {
                 {data: 'aggressor_type', name: "aggressor_type"},
                 {data: 'victim_type', name: "victim_type"},
                 {data: 'date_event', name: "date_event"},
-                {data: 'status', name: "status"},
                 {data: null, responsivePriority: -1},
             ],
 
@@ -139,25 +138,6 @@ var KTDenunciationsList = function () {
                         return `<span class="text-muted fw-semibold text-muted d-block fs-7">${data}</span>`;
                     },
                 },
-                {
-                    targets: 6,
-                    searchable: false,
-                    orderable: true,
-                    className: 'text-center pe-0',
-                    render: function (data, type, full, meta) {
-                        var status = {
-                            'NEW': {'title': 'Nuevo', 'class': 'badge-success'},
-                            'IN_PROGRESS': {'title': 'En progreso', 'class': 'badge-primary'},
-                            'CLOSED': {'title': 'Cerrado', 'class': 'badge-info'},
-                            'ARCHIVED': {'title': 'Archivado', 'class': 'badge-danger'},
-                        };
-                        if (typeof status[data] === 'undefined') {
-                            return data;
-                        }
-                        return `<span class="badge ${status[data].class} fs-8 fw-bold px-3 py-1">${status[data].title}</span>`;
-                    },
-                },
-
                 {
                     targets: -1,
                     orderable: false,
