@@ -22,7 +22,7 @@ class ForgotPasswordRequest extends ParentRequest
             'email' => 'required|email',
             'reseturl' => [
                 'required',
-                Rule::in(config('appSection-authentication.allowed-reset-password-urls')),
+                // Rule::in(config('appSection-authentication.allowed-reset-password-urls')),
             ],
         ];
     }

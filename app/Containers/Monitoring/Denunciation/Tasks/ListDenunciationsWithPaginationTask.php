@@ -55,7 +55,7 @@ class ListDenunciationsWithPaginationTask extends ParentTask
 
             return $query->distinct()->select(['denunciations.*']);
 
-        })->paginate(1);
+        })->paginate(10);
 
         return $result;
     }

@@ -79,7 +79,7 @@ var KTDenunciationsList = function () {
                     searchable: true,
                     className: 'text-center pe-0',
                     render: function (data, type, full, meta) {
-                        let toDetailUrl = "/monitoreo/denuncias/" + full.id + "/detalle";
+                        let toDetailUrl = "/admin/monitoreo/denuncias/" + full.id + "/detalle";
                         return `<a href="${toDetailUrl}" class="text-primary fw-bold text-hover-primary text-decoration-underline fs-7">${data}</a>`;
                     },
                 },
@@ -144,7 +144,7 @@ var KTDenunciationsList = function () {
                     searchable: false,
                     className: 'text-end',
                     render: function (data, type, full, meta) {
-                        var toEditUrl = "/monitoreo/denuncias/" + full.id + "/editar";
+                        var toEditUrl = "/admin/monitoreo/denuncias/" + full.id + "/editar";
                         return `<a href="${toEditUrl}" class="btn btn-sm btn-icon btn-secondary" title="Editar">
                                     <i class="ki-outline ki-pencil text-gray-600 fs-2"></i>
                                 </a>`;

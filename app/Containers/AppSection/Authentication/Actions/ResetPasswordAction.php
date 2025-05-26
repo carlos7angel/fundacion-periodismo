@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 class ResetPasswordAction extends ParentAction
 {
     public function __construct(
-        private readonly FindUserByEmailTask $findUserByEmailTask,
+        private FindUserByEmailTask $findUserByEmailTask,
     ) {
     }
 
@@ -48,10 +48,10 @@ class ResetPasswordAction extends ParentAction
             case Password::INVALID_TOKEN:
                 throw new InvalidResetPasswordTokenException();
             case Password::INVALID_USER:
-                throw new NotFoundException('User Not Found.');
+                throw new NotFoundException('Usuario no encontrado.');
             default:
                 $user = $this->findUserByEmailTask->run($sanitizedData['email']);
-                $user->notify(new PasswordReset());
+                // $user->notify(new PasswordReset());
         }
     }
 }

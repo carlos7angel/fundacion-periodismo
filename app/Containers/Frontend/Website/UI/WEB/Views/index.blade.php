@@ -2,49 +2,11 @@
 
 @section('content')
 
-    <div class="mt-lg-15 mt-15 mb-lg-20 position-relative z-index-2">
+    <div class="mt-lg-15 mt-15 mb-lg-20 mb-20 position-relative z-index-2">
         <div class="container">
             <div class="d-flex flex-column flex-xl-row flex-row-fluid gap-8">
                 <div class="d-flex flex-column justify-content-center justify-content-xl-start flex-row-auto w-100 w-xl-350px w-xxl-400px">
-                    <div class="card mb-7">
-                        <div class="card-body">
-
-                            <div class="mb-15">
-                                <h4 class="text-gray-900 mb-7">Menú</h4>
-                                <div class="menu menu-rounded menu-column menu-title-gray-700 menu-state-title-primary menu-active-bg-light-primary fw-semibold">
-                                    <div class="menu-item mb-1">
-                                        <a href="{{ route('web_index') }}" class="menu-link text-hover-info py-3">Inicio</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-16">
-                                <h4 class="text-gray-900 mb-7">Búsqueda</h4>
-                                <div class="position-relative">
-                                    <form role="form" action="{{ route('web_index') }}" method="GET">
-                                        <i class="ki-outline ki-magnifier fs-3 text-gray-500 position-absolute top-50 translate-middle ms-6"></i>
-                                        <input type="text" class="form-control form-control-solid ps-10" name="search" value="{{ $search }}" autocomplete="off" placeholder="Buscar..." />
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="mb-15">
-                                <h4 class="text-gray-900 mb-7">Categorias</h4>
-                                <div class="menu menu-rounded menu-column menu-title-gray-700 menu-state-title-primary menu-active-bg-light-primary fw-semibold">
-
-                                    @php
-                                        $categories = app(\App\Containers\Monitoring\ViolationType\Tasks\ViolationTypeCategory\ListViolationTypeCategoriesTask::class)->run();
-                                    @endphp
-                                    @foreach($categories as $index => $item)
-                                        <div class="menu-item mb-1">
-                                            <a href="{{ route('web_list_by_category', ['category_id' => $item->id, 'category_name' => \Illuminate\Support\Str::slug($item->name)]) }}" class="menu-link {{ $category == $item->id ? 'text-info' : '' }} text-hover-info py-3">{{ $item->name }}</a>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    @include('vendor@template::landing.components.base._aside')
                 </div>
                 <div class="w-100">
                     <div class="flex-column">

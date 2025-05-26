@@ -20,7 +20,7 @@ final class PasswordReset extends ParentNotification implements ShouldQueue
     public function toMail(User $notifiable): MailMessage
     {
         return (new MailMessage())
-            ->subject('Password Reset')
-            ->line('Your password has been reset successfully.');
+            ->subject('Contraseña restablecida')
+            ->line('Su contraseña ha sido restablecida satisfactoriamente.');
     }
 }

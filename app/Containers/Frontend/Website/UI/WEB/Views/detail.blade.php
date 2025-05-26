@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="mt-lg-15 mt-15 mb-lg-20 position-relative z-index-2">
+    <div class="mt-lg-15 mt-15 mb-lg-20 mb-20 position-relative z-index-2">
         <div class="container">
             <div class="d-flex flex-column flex-xl-row flex-row-fluid gap-8">
                 <div class="d-flex flex-column justify-content-center justify-content-xl-start flex-row-auto w-100 w-xl-350px w-xxl-400px">

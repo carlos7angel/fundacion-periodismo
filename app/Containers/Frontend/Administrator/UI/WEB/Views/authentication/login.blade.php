@@ -7,7 +7,7 @@
                 {{ csrf_field() }}
                 <div class="text-center mb-11">
                     <h1 class="text-gray-900 fw-bolder mb-3">INGRESO</h1>
-                    <div class="text-gray-500 fw-semibold fs-6">Sistema de Monitoreo de Agresiones a Periodistas</div>
+                    <div class="text-gray-500 fw-semibold fs-6">Sistema de Monitoreo</div>
                 </div>
 
                 @if (session('status') || $errors->has('email') || $errors->has('password'))
@@ -38,7 +38,7 @@
                 </div>
                 <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                     <div></div>
-                    <a href="" class="link-primary">¿Olvidaste tu contraseña ?</a>
+                    <a href="{{ route('admin_forgot_password') }}" class="link-primary">¿Olvidaste tu contraseña ?</a>
                 </div>
                 <div class="d-grid mb-10">
                     <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
@@ -57,7 +57,6 @@
         <div class="me-10">
         </div>
         <div class="d-flex fw-semibold text-primary fs-base gap-5">
-            <a href="#" target="_blank" rel="noopener">Términos y condiciones</a>
             <a href="#" target="_blank" rel="noopener">Contáctanos</a>
         </div>
     </div>

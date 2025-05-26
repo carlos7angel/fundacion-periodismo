@@ -22,6 +22,7 @@ class ForgotPassword extends ParentMail implements ShouldQueue
     {
         return $this->view('appSection@authentication::forgot-password')
             ->to($this->recipient->email, $this->recipient->name)
+            ->subject('Restablecer contraseña')
             ->with([
                 'token' => $this->token,
                 'reseturl' => $this->reseturl,
