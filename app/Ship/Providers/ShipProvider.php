@@ -4,6 +4,7 @@ namespace App\Ship\Providers;
 
 use App\Ship\Parents\Providers\MainServiceProvider as ParentMainServiceProvider;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class ShipProvider extends ParentMainServiceProvider
 {
@@ -26,6 +27,7 @@ class ShipProvider extends ParentMainServiceProvider
     public function boot(): void
     {
         parent::boot();
+        Paginator::useBootstrapFive();
     }
 
     /**

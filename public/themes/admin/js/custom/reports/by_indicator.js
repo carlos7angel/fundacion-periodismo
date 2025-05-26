@@ -237,7 +237,7 @@ var KTReportsByIndicator = function () {
                         <span class="text-gray-900 fw-semibold fs-8">${index+1}</span>
                     </td>
                     <td>
-                        <a href="/monitoreo/denuncias/${item.id}/detalle" class="text-primary fw-bold text-hover-primary text-decoration-underline fs-7">${item.code}</a>
+                        <a href="admin/monitoreo/denuncias/${item.id}/detalle" class="text-primary fw-bold text-hover-primary text-decoration-underline fs-7">${item.code}</a>
                     </td>
                     <td>
                         <div class="text-gray-900 fw-semibold d-block mb-1 fs-7">${item.aggressor_type}</div>
